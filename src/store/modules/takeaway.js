@@ -11,14 +11,20 @@ const foodStore = createSlice({
         foodsList: []
     },
     reducers: {
+        // 更改商品列表
         setFoodsList(state, action) {
             state.foodsList = action.payload
+        },
+
+        // change active Index 
+        changeActiveIndex(state, action) {
+            state.activeIndex = action.payload
         }
     }
 })
 
 // async 
-const { setFoodsList } = foodStore.actions
+const { setFoodsList, changeActiveIndex } = foodStore.actions
 const fetchFoodList = () => {
     return async (dispatch) => {
         // async axios 
@@ -29,7 +35,7 @@ const fetchFoodList = () => {
     }
 }
 
-export { fetchFoodList }
+export { fetchFoodList, changeActiveIndex }
 
 const reducer = foodStore.reducer
 
