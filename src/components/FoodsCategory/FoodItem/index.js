@@ -56,7 +56,7 @@ const Foods = ({
               like_ratio_desc,
               price,
               tag,
-              count
+              count: 1
             }))}></span>
           </div>
         </div>

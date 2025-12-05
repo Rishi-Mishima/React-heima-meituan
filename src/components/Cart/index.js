@@ -7,6 +7,9 @@ const Cart = () => {
   //在组件中获取cart list （store中的数据， --- 用useSelector 
   const { cartList } = useSelector(state => state.foods)
 
+  // 计算总价
+  const totalPrice = cartList.reduce((a, c) => a + c.price * c.count, 0)
+
   const cart = []
   return (
     <div className="cartContainer">
@@ -25,7 +28,7 @@ const Cart = () => {
           <div className="price">
             <span className="payableAmount">
               <span className="payableAmountUnit">¥</span>
-              {0.00}
+              {totalPrice.toFixed(2)}
             </span>
           </div>
           <span className="text">预估另需配送费 ¥5</span>
