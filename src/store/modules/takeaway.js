@@ -8,7 +8,13 @@ const foodStore = createSlice({
     name: 'foods',
     initialState: {
         // goods list 
-        foodsList: []
+        foodsList: [],
+
+        // 菜单激活下标值
+        activeIndex: 0,
+
+        // cartlist 
+        cartList: []
     },
     reducers: {
         // 更改商品列表
@@ -19,12 +25,25 @@ const foodStore = createSlice({
         // change active Index 
         changeActiveIndex(state, action) {
             state.activeIndex = action.payload
+        },
+
+        // add into cart 
+        addCart(state, action) {
+            // 是否添加过？ 以action.payload.id 去cart list中匹配
+
+            const item = state.cartList.find(item => item.id === action.payload.id)
+            if (item) {
+                item.count++
+            } else {
+                state.cartList.push(action.payload)
+            }
+
         }
     }
 })
 
 // async 
-const { setFoodsList, changeActiveIndex } = foodStore.actions
+const { setFoodsList, changeActiveIndex, addCart } = foodStore.actions
 const fetchFoodList = () => {
     return async (dispatch) => {
         // async axios 
@@ -35,7 +54,7 @@ const fetchFoodList = () => {
     }
 }
 
-export { fetchFoodList, changeActiveIndex }
+export { fetchFoodList, changeActiveIndex, addCart }
 
 const reducer = foodStore.reducer
 
