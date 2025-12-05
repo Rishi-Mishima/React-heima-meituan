@@ -20,7 +20,7 @@ const Cart = () => {
       <div className="cart">
         {/* fill 添加fill类名可以切换购物车状态*/}
         {/* 购物车数量 */}
-        <div className={classNames('icon')}>
+        <div className={classNames('icon', cartList.length > 0 && 'fill')}>
           {cartList.length > 0 && <div className="cartCornerMark">{cartList.length}</div>}
         </div>
         {/* 购物车价格 */}
@@ -34,7 +34,7 @@ const Cart = () => {
           <span className="text">预估另需配送费 ¥5</span>
         </div>
         {/* 结算 or 起送 */}
-        {false ? (
+        {cartList.length > 0 ? (
           <div className="goToPreview">去结算</div>
         ) : (
           <div className="minFee">¥20起送</div>
