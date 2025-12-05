@@ -1,8 +1,12 @@
 import classNames from 'classnames'
 import Count from '../Count'
 import './index.scss'
+import { useSelector } from 'react-redux'
 
 const Cart = () => {
+  //在组件中获取cart list （store中的数据， --- 用useSelector 
+  const { cartList } = useSelector(state => state.foods)
+
   const cart = []
   return (
     <div className="cartContainer">
@@ -14,7 +18,7 @@ const Cart = () => {
         {/* fill 添加fill类名可以切换购物车状态*/}
         {/* 购物车数量 */}
         <div className={classNames('icon')}>
-          {true && <div className="cartCornerMark">{0}</div>}
+          {cartList.length > 0 && <div className="cartCornerMark">{cartList.length}</div>}
         </div>
         {/* 购物车价格 */}
         <div className="main">
