@@ -51,13 +51,22 @@ const foodStore = createSlice({
         decreCount(state, action) {
             //count id 
             const item = state.cartList.find(item => item.id === action.payload.id)
+            if (item.count === 0) {
+
+                return
+            }
             item.count--
         },
+
+        // clear cart 
+        clearCart(state) {
+            state.cartList = []
+        }
     }
 })
 
 // async 
-const { setFoodsList, changeActiveIndex, addCart, increCount, decreCount } = foodStore.actions
+const { setFoodsList, changeActiveIndex, addCart, increCount, decreCount, clearCart } = foodStore.actions
 const fetchFoodList = () => {
     return async (dispatch) => {
         // async axios 
@@ -68,7 +77,7 @@ const fetchFoodList = () => {
     }
 }
 
-export { fetchFoodList, changeActiveIndex, addCart, increCount, decreCount }
+export { fetchFoodList, changeActiveIndex, addCart, increCount, decreCount, clearCart }
 
 const reducer = foodStore.reducer
 

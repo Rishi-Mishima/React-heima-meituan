@@ -3,7 +3,7 @@ import Count from '../Count'
 import './index.scss'
 import { useDispatch, useSelector } from 'react-redux'
 
-import { decreCount, increCount } from '../../store/modules/takeaway'
+import { decreCount, increCount, clearCart } from '../../store/modules/takeaway'
 
 const Cart = () => {
   //在组件中获取cart list （store中的数据， --- 用useSelector 
@@ -49,7 +49,7 @@ const Cart = () => {
       <div className={classNames('cartPanel', 'visible')}>
         <div className="header">
           <span className="text">购物车</span>
-          <span className="clearCart">
+          <span className="clearCart" onClick={() => dispatch(clearCart())}>
             清空购物车
           </span>
         </div>
