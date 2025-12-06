@@ -1,0 +1,64 @@
+.goods-count {
+  font-size: 16px;
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff;
+
+  .minus,
+  .plus {
+    width: 20px;
+    height: 20px;
+    background-size: 20px 20px;
+    position: relative;
+  }
+
+  /* 减号按钮 */
+  .minus {
+    border: 2px solid #d8b61b;
+    border-radius: 50%;
+  }
+
+  .minus::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 4px;
+    right: 4px;
+    height: 2px;
+    background: #d8b61b;
+    transform: translateY(-50%);
+  }
+
+  /* 加号按钮（纯 CSS） */
+  .plus {
+    border: 2px solid #d8b61b;
+    border-radius: 50%;
+    margin-left: 12.5px;
+  }
+
+  .plus::before,
+  .plus::after {
+    content: "";
+    position: absolute;
+    background: #d8b61b;
+  }
+
+  /* 横线 */
+  .plus::before {
+    top: 50%;
+    left: 4px;
+    right: 4px;
+    height: 2px;
+    transform: translateY(-50%);
+  }
+
+  /* 竖线 */
+  .plus::after {
+    top: 4px;
+    bottom: 4px;
+    left: 50%;
+    width: 2px;
+    transform: translateX(-50%);
+  }
+}
