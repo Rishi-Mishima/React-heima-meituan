@@ -1,5 +1,6 @@
 import './Login.scss'
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 const Login = () => {
     const [mobile, setMobile] = useState('')
@@ -14,6 +15,8 @@ const Login = () => {
     return (
         <div className="login-page">
             <h2>欢迎登录</h2>
+
+            <Link to={'/article'}> 欢迎来到登湖也</Link>
 
             <div className="form-item">
                 <input
