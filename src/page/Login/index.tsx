@@ -44,3 +44,19 @@ const Login = () => {
 }
 
 export default Login
+
+// import { useNavigate } from "react-router-dom";
+
+// const Login = () => {
+//     const navigate = useNavigate()
+//     return (
+//         <div>
+//             Im the login page
+
+//             <button onClick={() => navigate('/article')}> click me</button>
+//         </div>
+
+//     )
+// }
+
+// export default Login
